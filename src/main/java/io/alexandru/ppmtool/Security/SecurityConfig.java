@@ -71,13 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/",
                         "/favicon.ico",
-                        "/**/*/.png",
-                        "/**/*/.gif",
-                        "/**/*/.svg",
-                        "/**/*/.jpg",
-                        "/resources/static/static/*.html",
-                        "/resources/static/static/*.css",
-                        "/resources/static/static/*.css/*.js"
+                        "/resources/**"
                         ).permitAll()
                         .antMatchers(SIGN_UP_URLS).permitAll()
                         .antMatchers(H2_URL).permitAll()
