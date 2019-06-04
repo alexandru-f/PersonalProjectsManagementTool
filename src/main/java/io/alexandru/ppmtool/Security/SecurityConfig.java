@@ -75,8 +75,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*/.gif",
                         "/**/*/.svg",
                         "/**/*/.jpg",
-                        "/resources/static/*.html",
-                        "/resources/static/*.css",
+                        "/resources/static/static/*.html",
+                        "/resources/static/static/*.css",
                         "/**/*/.js"
                         ).permitAll()
                         .antMatchers(SIGN_UP_URLS).permitAll()
