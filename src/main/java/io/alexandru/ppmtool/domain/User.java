@@ -33,6 +33,7 @@ public class User implements UserDetails {
     //Transient - makes sure that password and confirm password match before persist into db
     @Transient
     private String confirmPassword;
+
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date created_At;
     @JsonFormat(pattern = "yyyy-mm-dd")

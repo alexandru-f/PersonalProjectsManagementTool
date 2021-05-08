@@ -1,11 +1,8 @@
 package io.alexandru.ppmtool.web;
 
-import java.io.BufferedReader;
+
 import java.security.Principal;
-import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -14,21 +14,27 @@ import io.alexandru.ppmtool.repositories.BacklogRepository;
 import io.alexandru.ppmtool.repositories.ProjectRepository;
 import io.alexandru.ppmtool.repositories.ProjectTaskRepository;
 
-@Service
 public class ProjectTaskService {
-	
-	
-	@Autowired
-	private BacklogRepository backlogRepository;
-	
-	@Autowired
-	private ProjectTaskRepository projectTaskRepository;
-	
-	@Autowired
-	private ProjectRepository projectRepository;
 
-	@Autowired
-	private ProjectService projectService;
+
+	private final BacklogRepository backlogRepository;
+	
+
+	private final ProjectTaskRepository projectTaskRepository;
+	
+
+	private final ProjectRepository projectRepository;
+
+
+	private final ProjectService projectService;
+
+	public ProjectTaskService(BacklogRepository backlogRepository, ProjectTaskRepository projectTaskRepository,
+							  ProjectRepository projectRepository, ProjectService projectService) {
+		this.backlogRepository = backlogRepository;
+		this.projectTaskRepository = projectTaskRepository;
+		this.projectRepository = projectRepository;
+		this.projectService = projectService;
+	}
 
 	public ProjectTask addProjectTask(String projectIdentifier, ProjectTask projectTask, String username) {
 
@@ -83,7 +89,6 @@ public class ProjectTaskService {
 
 		// Make sure we are searching on the right backlog
 		projectService.findProjectByIdentifier(backlog_id, username);
-
 
 		// Make sure that our tasks exists
 		ProjectTask projectTask = projectTaskRepository.findByProjectSequence(pt_id);

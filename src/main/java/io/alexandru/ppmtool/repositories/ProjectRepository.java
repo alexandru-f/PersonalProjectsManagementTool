@@ -14,5 +14,4 @@ public interface ProjectRepository extends CrudRepository<Project, Long> {
 
 	Iterable<Project> findAllByProjectLeader(String username);
 
-	
 }

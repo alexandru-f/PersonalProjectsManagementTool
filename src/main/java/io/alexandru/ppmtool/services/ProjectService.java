@@ -14,23 +14,22 @@ import io.alexandru.ppmtool.repositories.ProjectRepository;
 
 import java.security.Principal;
 
-@Service
 public class ProjectService {
 
-	@Autowired
-	private ProjectRepository projectRepository;
-	
-	@Autowired
-	private BacklogRepository backlogRepository;
+	private final ProjectRepository projectRepository;
 
-	@Autowired
-	private UserRepository userRepository;
-	//Logic
-	
+	private final BacklogRepository backlogRepository;
+
+	private final UserRepository userRepository;
+
+	public ProjectService(ProjectRepository projectRepository, BacklogRepository backlogRepository, UserRepository userRepository) {
+		this.projectRepository = projectRepository;
+		this.backlogRepository = backlogRepository;
+		this.userRepository = userRepository;
+	}
+
 	public Project saveOrUpdateProject(Project project, String username) {
 
-		// Project.getId() == null;
-		// project updated = not null
 
 		if (project.getId() != null) {
 			Project existingProject = projectRepository.findByProjectIdentifier(project.getProjectIdentifier());
@@ -38,7 +37,7 @@ public class ProjectService {
 			if (existingProject != null && (!existingProject.getProjectLeader().equals(username))) {
 				throw new ProjectNotFoundException("Project not found in your account");
 			} else if (existingProject == null) {
-				throw new ProjectNotFoundException("Project with ID '"+project.getProjectIdentifier()+"' cannot be updated because it doesn't exist");
+				throw new ProjectNotFoundException("Project with ID '" + project.getProjectIdentifier() + "' cannot be updated because it doesn't exist");
 			}
 		}
 
