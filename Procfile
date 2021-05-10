@@ -1,2 +1,4 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar
-JAVA_TOOL_OPTIONS -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8
+web: java $JAVA_OPTS -jar target/*.jar -Dserver.port=$PORT $JAR_OPTS
+
+
+
