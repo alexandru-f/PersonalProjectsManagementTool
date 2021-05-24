@@ -1,5 +1,10 @@
+package io.alexandru.ppmtool.beans;
+import org.thymeleaf.spring4.templateresolver;
+import org.thymeleaf.spring5;
+
 @Configuration
 public class ThymeleafTemplateConfig {
+   
     @Bean
     public SpringTemplateEngine springTemplateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
