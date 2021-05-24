@@ -29,7 +29,7 @@ public class EmailService {
             );
             Context context = new Context();
             context.setVariables(mail.getModel());
-            String html = templateEngine.process("/email-template", context);
+            String html = templateEngine.process("email-template", context);
 
             helper.setTo(mail.getTo());
             helper.setText(html, true);
