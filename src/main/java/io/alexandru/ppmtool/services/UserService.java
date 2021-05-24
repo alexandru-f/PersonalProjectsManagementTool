@@ -83,7 +83,7 @@ public class UserService {
         model.put("token", token);
         model.put("user", user);
         model.put("signature", "https://personal-management.herokuapp.com/");
-        String url = request.getScheme() + "://" + request.getServerName() + ":" + "3000";
+        String url = request.getScheme() + "://" + request.getServerName();
         model.put("resetUrl", url + "/resetPassword?token=" + token.getToken());
         mail.setModel(model);
         emailService.sendEmail(mail);
